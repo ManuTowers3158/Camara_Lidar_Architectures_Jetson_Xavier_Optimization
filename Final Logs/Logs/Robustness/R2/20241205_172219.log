@@ -1,0 +1,1186 @@
+2024/12/05 17:22:19 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.8.19 (default, Mar 20 2024, 19:58:24) [GCC 11.2.0]
+    CUDA available: True
+    MUSA available: False
+    numpy_random_seed: 1996049766
+    GPU 0: NVIDIA GeForce RTX 3090
+    CUDA_HOME: /home/geisler/miniconda3/envs/openmmlab
+    NVCC: Cuda compilation tools, release 12.4, V12.4.131
+    GCC: x86_64-conda_cos7-linux-gnu-gcc (Anaconda gcc) 11.2.0
+    PyTorch: 2.4.1
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v3.4.2 (Git Hash 1137e04ec0b5251ca2b4400a4fd3c667ce843d67)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 12.4
+  - NVCC architecture flags: -gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_90,code=sm_90
+  - CuDNN 90.1
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=12.4, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=pedantic -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=2.4.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, 
+
+    TorchVision: 0.19.1
+    OpenCV: 4.10.0
+    MMEngine: 0.10.5
+
+Runtime environment:
+    cudnn_benchmark: False
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: 1996049766
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+2024/12/05 17:22:20 - mmengine - INFO - Config:
+auto_scale_lr = dict(base_batch_size=32, enable=False)
+backend_args = None
+class_names = [
+    'car',
+    'truck',
+    'construction_vehicle',
+    'bus',
+    'trailer',
+    'barrier',
+    'motorcycle',
+    'bicycle',
+    'pedestrian',
+    'traffic_cone',
+]
+custom_hooks = [
+    dict(disable_after_epoch=15, type='DisableObjectSampleHook'),
+]
+custom_imports = dict(
+    allow_failed_imports=False, imports=[
+        'projects.BEVFusion.bevfusion',
+    ])
+data_prefix = dict(
+    CAM_BACK='samples/CAM_BACK',
+    CAM_BACK_LEFT='samples/CAM_BACK_LEFT',
+    CAM_BACK_RIGHT='samples/CAM_BACK_RIGHT',
+    CAM_FRONT='samples/CAM_FRONT',
+    CAM_FRONT_LEFT='samples/CAM_FRONT_LEFT',
+    CAM_FRONT_RIGHT='samples/CAM_FRONT_RIGHT',
+    pts='samples/LIDAR_TOP',
+    sweeps='sweeps/LIDAR_TOP')
+data_root = '/media/geisler/A4ECA10AECA0D7B6/robustness/'
+dataset_type = 'NuScenesDataset'
+db_sampler = dict(
+    classes=[
+        'car',
+        'truck',
+        'construction_vehicle',
+        'bus',
+        'trailer',
+        'barrier',
+        'motorcycle',
+        'bicycle',
+        'pedestrian',
+        'traffic_cone',
+    ],
+    data_root='/media/geisler/A4ECA10AECA0D7B6/robustness/',
+    info_path=
+    '/media/geisler/A4ECA10AECA0D7B6/robustness/nuscenes_dbinfos_train.pkl',
+    points_loader=dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=5,
+        type='LoadPointsFromFile',
+        use_dim=[
+            0,
+            1,
+            2,
+            3,
+            4,
+        ]),
+    prepare=dict(
+        filter_by_difficulty=[
+            -1,
+        ],
+        filter_by_min_points=dict(
+            barrier=5,
+            bicycle=5,
+            bus=5,
+            car=5,
+            construction_vehicle=5,
+            motorcycle=5,
+            pedestrian=5,
+            traffic_cone=5,
+            trailer=5,
+            truck=5)),
+    rate=1.0,
+    sample_groups=dict(
+        barrier=2,
+        bicycle=6,
+        bus=4,
+        car=2,
+        construction_vehicle=7,
+        motorcycle=6,
+        pedestrian=2,
+        traffic_cone=2,
+        trailer=6,
+        truck=3))
+default_hooks = dict(
+    checkpoint=dict(interval=5, type='CheckpointHook'),
+    logger=dict(interval=50, type='LoggerHook'),
+    param_scheduler=dict(type='ParamSchedulerHook'),
+    sampler_seed=dict(type='DistSamplerSeedHook'),
+    timer=dict(type='IterTimerHook'),
+    visualization=dict(type='Det3DVisualizationHook'))
+default_scope = 'mmdet3d'
+env_cfg = dict(
+    cudnn_benchmark=False,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+input_modality = dict(use_camera=False, use_lidar=True)
+launcher = 'none'
+load_from = 'projects/BEVFusion/configs/MMCV_Lidar_own.pth'
+log_level = 'INFO'
+log_processor = dict(by_epoch=True, type='LogProcessor', window_size=50)
+lr = 0.0001
+metainfo = dict(classes=[
+    'car',
+    'truck',
+    'construction_vehicle',
+    'bus',
+    'trailer',
+    'barrier',
+    'motorcycle',
+    'bicycle',
+    'pedestrian',
+    'traffic_cone',
+])
+model = dict(
+    bbox_head=dict(
+        auxiliary=True,
+        bbox_coder=dict(
+            code_size=10,
+            out_size_factor=8,
+            pc_range=[
+                -54.0,
+                -54.0,
+            ],
+            post_center_range=[
+                -61.2,
+                -61.2,
+                -10.0,
+                61.2,
+                61.2,
+                10.0,
+            ],
+            score_threshold=0.0,
+            type='TransFusionBBoxCoder',
+            voxel_size=[
+                0.075,
+                0.075,
+            ]),
+        bn_momentum=0.1,
+        common_heads=dict(
+            center=[
+                2,
+                2,
+            ],
+            dim=[
+                3,
+                2,
+            ],
+            height=[
+                1,
+                2,
+            ],
+            rot=[
+                2,
+                2,
+            ],
+            vel=[
+                2,
+                2,
+            ]),
+        decoder_layer=dict(
+            cross_attn_cfg=dict(dropout=0.1, embed_dims=128, num_heads=8),
+            ffn_cfg=dict(
+                act_cfg=dict(inplace=True, type='ReLU'),
+                embed_dims=128,
+                feedforward_channels=256,
+                ffn_drop=0.1,
+                num_fcs=2),
+            norm_cfg=dict(type='LN'),
+            pos_encoding_cfg=dict(input_channel=2, num_pos_feats=128),
+            self_attn_cfg=dict(dropout=0.1, embed_dims=128, num_heads=8),
+            type='TransformerDecoderLayer'),
+        hidden_channel=128,
+        in_channels=512,
+        loss_bbox=dict(
+            loss_weight=0.25, reduction='mean', type='mmdet.L1Loss'),
+        loss_cls=dict(
+            alpha=0.25,
+            gamma=2.0,
+            loss_weight=1.0,
+            reduction='mean',
+            type='mmdet.FocalLoss',
+            use_sigmoid=True),
+        loss_heatmap=dict(
+            loss_weight=1.0, reduction='mean', type='mmdet.GaussianFocalLoss'),
+        nms_kernel_size=3,
+        num_classes=10,
+        num_decoder_layers=1,
+        num_proposals=200,
+        test_cfg=dict(
+            dataset='nuScenes',
+            grid_size=[
+                1440,
+                1440,
+                41,
+            ],
+            nms_type=None,
+            out_size_factor=8,
+            pc_range=[
+                -54.0,
+                -54.0,
+            ],
+            voxel_size=[
+                0.075,
+                0.075,
+            ]),
+        train_cfg=dict(
+            assigner=dict(
+                cls_cost=dict(
+                    alpha=0.25,
+                    gamma=2.0,
+                    type='mmdet.FocalLossCost',
+                    weight=0.15),
+                iou_calculator=dict(coordinate='lidar', type='BboxOverlaps3D'),
+                iou_cost=dict(type='IoU3DCost', weight=0.25),
+                reg_cost=dict(type='BBoxBEVL1Cost', weight=0.25),
+                type='HungarianAssigner3D'),
+            code_weights=[
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                0.2,
+                0.2,
+            ],
+            dataset='nuScenes',
+            gaussian_overlap=0.1,
+            grid_size=[
+                1440,
+                1440,
+                41,
+            ],
+            min_radius=2,
+            out_size_factor=8,
+            point_cloud_range=[
+                -54.0,
+                -54.0,
+                -5.0,
+                54.0,
+                54.0,
+                3.0,
+            ],
+            pos_weight=-1,
+            voxel_size=[
+                0.075,
+                0.075,
+                0.2,
+            ]),
+        type='TransFusionHead'),
+    data_preprocessor=dict(
+        pad_size_divisor=32,
+        type='Det3DDataPreprocessor',
+        voxelize_cfg=dict(
+            max_num_points=10,
+            max_voxels=[
+                120000,
+                160000,
+            ],
+            point_cloud_range=[
+                -54.0,
+                -54.0,
+                -5.0,
+                54.0,
+                54.0,
+                3.0,
+            ],
+            voxel_size=[
+                0.075,
+                0.075,
+                0.2,
+            ],
+            voxelize_reduce=True)),
+    pts_backbone=dict(
+        conv_cfg=dict(bias=False, type='Conv2d'),
+        in_channels=256,
+        layer_nums=[
+            5,
+            5,
+        ],
+        layer_strides=[
+            1,
+            2,
+        ],
+        norm_cfg=dict(eps=0.001, momentum=0.01, type='BN'),
+        out_channels=[
+            128,
+            256,
+        ],
+        type='SECOND'),
+    pts_middle_encoder=dict(
+        block_type='basicblock',
+        encoder_channels=(
+            (
+                16,
+                16,
+                32,
+            ),
+            (
+                32,
+                32,
+                64,
+            ),
+            (
+                64,
+                64,
+                128,
+            ),
+            (
+                128,
+                128,
+            ),
+        ),
+        encoder_paddings=(
+            (
+                0,
+                0,
+                1,
+            ),
+            (
+                0,
+                0,
+                1,
+            ),
+            (
+                0,
+                0,
+                (
+                    1,
+                    1,
+                    0,
+                ),
+            ),
+            (
+                0,
+                0,
+            ),
+        ),
+        in_channels=5,
+        norm_cfg=dict(eps=0.001, momentum=0.01, type='BN1d'),
+        order=(
+            'conv',
+            'norm',
+            'act',
+        ),
+        sparse_shape=[
+            1440,
+            1440,
+            41,
+        ],
+        type='BEVFusionSparseEncoder'),
+    pts_neck=dict(
+        in_channels=[
+            128,
+            256,
+        ],
+        norm_cfg=dict(eps=0.001, momentum=0.01, type='BN'),
+        out_channels=[
+            256,
+            256,
+        ],
+        type='SECONDFPN',
+        upsample_cfg=dict(bias=False, type='deconv'),
+        upsample_strides=[
+            1,
+            2,
+        ],
+        use_conv_for_no_stride=True),
+    pts_voxel_encoder=dict(num_features=5, type='HardSimpleVFE'),
+    type='BEVFusion')
+optim_wrapper = dict(
+    clip_grad=dict(max_norm=35, norm_type=2),
+    optimizer=dict(lr=0.0001, type='AdamW', weight_decay=0.01),
+    type='OptimWrapper')
+param_scheduler = [
+    dict(
+        T_max=8,
+        begin=0,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=8,
+        eta_min=0.001,
+        type='CosineAnnealingLR'),
+    dict(
+        T_max=12,
+        begin=8,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=20,
+        eta_min=1e-08,
+        type='CosineAnnealingLR'),
+    dict(
+        T_max=8,
+        begin=0,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=8,
+        eta_min=0.8947368421052632,
+        type='CosineAnnealingMomentum'),
+    dict(
+        T_max=12,
+        begin=8,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=20,
+        eta_min=1,
+        type='CosineAnnealingMomentum'),
+]
+point_cloud_range = [
+    -54.0,
+    -54.0,
+    -5.0,
+    54.0,
+    54.0,
+    3.0,
+]
+resume = False
+test_cfg = dict()
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file='nuscenes_infos_val.pkl',
+        backend_args=None,
+        box_type_3d='LiDAR',
+        data_prefix=dict(
+            CAM_BACK='samples/CAM_BACK',
+            CAM_BACK_LEFT='samples/CAM_BACK_LEFT',
+            CAM_BACK_RIGHT='samples/CAM_BACK_RIGHT',
+            CAM_FRONT='samples/CAM_FRONT',
+            CAM_FRONT_LEFT='samples/CAM_FRONT_LEFT',
+            CAM_FRONT_RIGHT='samples/CAM_FRONT_RIGHT',
+            pts='samples/LIDAR_TOP',
+            sweeps='sweeps/LIDAR_TOP'),
+        data_root='/media/geisler/A4ECA10AECA0D7B6/robustness/',
+        metainfo=dict(classes=[
+            'car',
+            'truck',
+            'construction_vehicle',
+            'bus',
+            'trailer',
+            'barrier',
+            'motorcycle',
+            'bicycle',
+            'pedestrian',
+            'traffic_cone',
+        ]),
+        modality=dict(use_camera=False, use_lidar=True),
+        pipeline=[
+            dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=5,
+                type='LoadPointsFromFile',
+                use_dim=5),
+            dict(
+                backend_args=None,
+                load_dim=5,
+                pad_empty_sweeps=True,
+                remove_close=True,
+                sweeps_num=8,
+                type='LoadPointsFromMultiSweeps',
+                use_dim=5),
+            dict(
+                point_cloud_range=[
+                    -54.0,
+                    -54.0,
+                    -5.0,
+                    54.0,
+                    54.0,
+                    3.0,
+                ],
+                type='PointsRangeFilter'),
+            dict(
+                keys=[
+                    'img',
+                    'points',
+                    'gt_bboxes_3d',
+                    'gt_labels_3d',
+                ],
+                meta_keys=[
+                    'cam2img',
+                    'ori_cam2img',
+                    'lidar2cam',
+                    'lidar2img',
+                    'cam2lidar',
+                    'ori_lidar2img',
+                    'img_aug_matrix',
+                    'box_type_3d',
+                    'sample_idx',
+                    'lidar_path',
+                    'img_path',
+                    'num_pts_feats',
+                    'num_views',
+                ],
+                type='Pack3DDetInputs'),
+        ],
+        test_mode=True,
+        type='NuScenesDataset'),
+    drop_last=False,
+    num_workers=4,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    ann_file=
+    '/media/geisler/A4ECA10AECA0D7B6/robustness/nuscenes_infos_val.pkl',
+    backend_args=None,
+    data_root='/media/geisler/A4ECA10AECA0D7B6/robustness/',
+    metric='bbox',
+    type='NuScenesMetric')
+test_pipeline = [
+    dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=5,
+        type='LoadPointsFromFile',
+        use_dim=5),
+    dict(
+        backend_args=None,
+        load_dim=5,
+        pad_empty_sweeps=True,
+        remove_close=True,
+        sweeps_num=8,
+        type='LoadPointsFromMultiSweeps',
+        use_dim=5),
+    dict(
+        point_cloud_range=[
+            -54.0,
+            -54.0,
+            -5.0,
+            54.0,
+            54.0,
+            3.0,
+        ],
+        type='PointsRangeFilter'),
+    dict(
+        keys=[
+            'img',
+            'points',
+            'gt_bboxes_3d',
+            'gt_labels_3d',
+        ],
+        meta_keys=[
+            'cam2img',
+            'ori_cam2img',
+            'lidar2cam',
+            'lidar2img',
+            'cam2lidar',
+            'ori_lidar2img',
+            'img_aug_matrix',
+            'box_type_3d',
+            'sample_idx',
+            'lidar_path',
+            'img_path',
+            'num_pts_feats',
+            'num_views',
+        ],
+        type='Pack3DDetInputs'),
+]
+train_cfg = dict(by_epoch=True, max_epochs=20, val_interval=5)
+train_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        dataset=dict(
+            ann_file='nuscenes_infos_train.pkl',
+            box_type_3d='LiDAR',
+            data_prefix=dict(
+                CAM_BACK='samples/CAM_BACK',
+                CAM_BACK_LEFT='samples/CAM_BACK_LEFT',
+                CAM_BACK_RIGHT='samples/CAM_BACK_RIGHT',
+                CAM_FRONT='samples/CAM_FRONT',
+                CAM_FRONT_LEFT='samples/CAM_FRONT_LEFT',
+                CAM_FRONT_RIGHT='samples/CAM_FRONT_RIGHT',
+                pts='samples/LIDAR_TOP',
+                sweeps='sweeps/LIDAR_TOP'),
+            data_root='/media/geisler/A4ECA10AECA0D7B6/robustness/',
+            metainfo=dict(classes=[
+                'car',
+                'truck',
+                'construction_vehicle',
+                'bus',
+                'trailer',
+                'barrier',
+                'motorcycle',
+                'bicycle',
+                'pedestrian',
+                'traffic_cone',
+            ]),
+            modality=dict(use_camera=False, use_lidar=True),
+            pipeline=[
+                dict(
+                    backend_args=None,
+                    coord_type='LIDAR',
+                    load_dim=5,
+                    type='LoadPointsFromFile',
+                    use_dim=5),
+                dict(
+                    backend_args=None,
+                    load_dim=5,
+                    pad_empty_sweeps=True,
+                    remove_close=True,
+                    sweeps_num=9,
+                    type='LoadPointsFromMultiSweeps',
+                    use_dim=5),
+                dict(
+                    type='LoadAnnotations3D',
+                    with_attr_label=False,
+                    with_bbox_3d=True,
+                    with_label_3d=True),
+                dict(
+                    db_sampler=dict(
+                        classes=[
+                            'car',
+                            'truck',
+                            'construction_vehicle',
+                            'bus',
+                            'trailer',
+                            'barrier',
+                            'motorcycle',
+                            'bicycle',
+                            'pedestrian',
+                            'traffic_cone',
+                        ],
+                        data_root='/media/geisler/A4ECA10AECA0D7B6/robustness/',
+                        info_path=
+                        '/media/geisler/A4ECA10AECA0D7B6/robustness/nuscenes_dbinfos_train.pkl',
+                        points_loader=dict(
+                            backend_args=None,
+                            coord_type='LIDAR',
+                            load_dim=5,
+                            type='LoadPointsFromFile',
+                            use_dim=[
+                                0,
+                                1,
+                                2,
+                                3,
+                                4,
+                            ]),
+                        prepare=dict(
+                            filter_by_difficulty=[
+                                -1,
+                            ],
+                            filter_by_min_points=dict(
+                                barrier=5,
+                                bicycle=5,
+                                bus=5,
+                                car=5,
+                                construction_vehicle=5,
+                                motorcycle=5,
+                                pedestrian=5,
+                                traffic_cone=5,
+                                trailer=5,
+                                truck=5)),
+                        rate=1.0,
+                        sample_groups=dict(
+                            barrier=2,
+                            bicycle=6,
+                            bus=4,
+                            car=2,
+                            construction_vehicle=7,
+                            motorcycle=6,
+                            pedestrian=2,
+                            traffic_cone=2,
+                            trailer=6,
+                            truck=3)),
+                    type='ObjectSample'),
+                dict(
+                    rot_range=[
+                        -0.78539816,
+                        0.78539816,
+                    ],
+                    scale_ratio_range=[
+                        0.9,
+                        1.1,
+                    ],
+                    translation_std=0.5,
+                    type='GlobalRotScaleTrans'),
+                dict(type='BEVFusionRandomFlip3D'),
+                dict(
+                    point_cloud_range=[
+                        -54.0,
+                        -54.0,
+                        -5.0,
+                        54.0,
+                        54.0,
+                        3.0,
+                    ],
+                    type='PointsRangeFilter'),
+                dict(
+                    point_cloud_range=[
+                        -54.0,
+                        -54.0,
+                        -5.0,
+                        54.0,
+                        54.0,
+                        3.0,
+                    ],
+                    type='ObjectRangeFilter'),
+                dict(
+                    classes=[
+                        'car',
+                        'truck',
+                        'construction_vehicle',
+                        'bus',
+                        'trailer',
+                        'barrier',
+                        'motorcycle',
+                        'bicycle',
+                        'pedestrian',
+                        'traffic_cone',
+                    ],
+                    type='ObjectNameFilter'),
+                dict(type='PointShuffle'),
+                dict(
+                    keys=[
+                        'points',
+                        'img',
+                        'gt_bboxes_3d',
+                        'gt_labels_3d',
+                        'gt_bboxes',
+                        'gt_labels',
+                    ],
+                    meta_keys=[
+                        'cam2img',
+                        'ori_cam2img',
+                        'lidar2cam',
+                        'lidar2img',
+                        'cam2lidar',
+                        'ori_lidar2img',
+                        'img_aug_matrix',
+                        'box_type_3d',
+                        'sample_idx',
+                        'lidar_path',
+                        'img_path',
+                        'transformation_3d_flow',
+                        'pcd_rotation',
+                        'pcd_scale_factor',
+                        'pcd_trans',
+                        'img_aug_matrix',
+                        'lidar_aug_matrix',
+                    ],
+                    type='Pack3DDetInputs'),
+            ],
+            test_mode=False,
+            type='NuScenesDataset',
+            use_valid_flag=True),
+        type='CBGSDataset'),
+    num_workers=1,
+    persistent_workers=True,
+    sampler=dict(shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=5,
+        type='LoadPointsFromFile',
+        use_dim=5),
+    dict(
+        backend_args=None,
+        load_dim=5,
+        pad_empty_sweeps=True,
+        remove_close=True,
+        sweeps_num=9,
+        type='LoadPointsFromMultiSweeps',
+        use_dim=5),
+    dict(
+        type='LoadAnnotations3D',
+        with_attr_label=False,
+        with_bbox_3d=True,
+        with_label_3d=True),
+    dict(
+        db_sampler=dict(
+            classes=[
+                'car',
+                'truck',
+                'construction_vehicle',
+                'bus',
+                'trailer',
+                'barrier',
+                'motorcycle',
+                'bicycle',
+                'pedestrian',
+                'traffic_cone',
+            ],
+            data_root='/media/geisler/A4ECA10AECA0D7B6/robustness/',
+            info_path=
+            '/media/geisler/A4ECA10AECA0D7B6/robustness/nuscenes_dbinfos_train.pkl',
+            points_loader=dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=5,
+                type='LoadPointsFromFile',
+                use_dim=[
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                ]),
+            prepare=dict(
+                filter_by_difficulty=[
+                    -1,
+                ],
+                filter_by_min_points=dict(
+                    barrier=5,
+                    bicycle=5,
+                    bus=5,
+                    car=5,
+                    construction_vehicle=5,
+                    motorcycle=5,
+                    pedestrian=5,
+                    traffic_cone=5,
+                    trailer=5,
+                    truck=5)),
+            rate=1.0,
+            sample_groups=dict(
+                barrier=2,
+                bicycle=6,
+                bus=4,
+                car=2,
+                construction_vehicle=7,
+                motorcycle=6,
+                pedestrian=2,
+                traffic_cone=2,
+                trailer=6,
+                truck=3)),
+        type='ObjectSample'),
+    dict(
+        rot_range=[
+            -0.78539816,
+            0.78539816,
+        ],
+        scale_ratio_range=[
+            0.9,
+            1.1,
+        ],
+        translation_std=0.5,
+        type='GlobalRotScaleTrans'),
+    dict(type='BEVFusionRandomFlip3D'),
+    dict(
+        point_cloud_range=[
+            -54.0,
+            -54.0,
+            -5.0,
+            54.0,
+            54.0,
+            3.0,
+        ],
+        type='PointsRangeFilter'),
+    dict(
+        point_cloud_range=[
+            -54.0,
+            -54.0,
+            -5.0,
+            54.0,
+            54.0,
+            3.0,
+        ],
+        type='ObjectRangeFilter'),
+    dict(
+        classes=[
+            'car',
+            'truck',
+            'construction_vehicle',
+            'bus',
+            'trailer',
+            'barrier',
+            'motorcycle',
+            'bicycle',
+            'pedestrian',
+            'traffic_cone',
+        ],
+        type='ObjectNameFilter'),
+    dict(type='PointShuffle'),
+    dict(
+        keys=[
+            'points',
+            'img',
+            'gt_bboxes_3d',
+            'gt_labels_3d',
+            'gt_bboxes',
+            'gt_labels',
+        ],
+        meta_keys=[
+            'cam2img',
+            'ori_cam2img',
+            'lidar2cam',
+            'lidar2img',
+            'cam2lidar',
+            'ori_lidar2img',
+            'img_aug_matrix',
+            'box_type_3d',
+            'sample_idx',
+            'lidar_path',
+            'img_path',
+            'transformation_3d_flow',
+            'pcd_rotation',
+            'pcd_scale_factor',
+            'pcd_trans',
+            'img_aug_matrix',
+            'lidar_aug_matrix',
+        ],
+        type='Pack3DDetInputs'),
+]
+val_cfg = dict()
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file='nuscenes_infos_val.pkl',
+        backend_args=None,
+        box_type_3d='LiDAR',
+        data_prefix=dict(
+            CAM_BACK='samples/CAM_BACK',
+            CAM_BACK_LEFT='samples/CAM_BACK_LEFT',
+            CAM_BACK_RIGHT='samples/CAM_BACK_RIGHT',
+            CAM_FRONT='samples/CAM_FRONT',
+            CAM_FRONT_LEFT='samples/CAM_FRONT_LEFT',
+            CAM_FRONT_RIGHT='samples/CAM_FRONT_RIGHT',
+            pts='samples/LIDAR_TOP',
+            sweeps='sweeps/LIDAR_TOP'),
+        data_root='/media/geisler/A4ECA10AECA0D7B6/robustness/',
+        metainfo=dict(classes=[
+            'car',
+            'truck',
+            'construction_vehicle',
+            'bus',
+            'trailer',
+            'barrier',
+            'motorcycle',
+            'bicycle',
+            'pedestrian',
+            'traffic_cone',
+        ]),
+        modality=dict(use_camera=False, use_lidar=True),
+        pipeline=[
+            dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=5,
+                type='LoadPointsFromFile',
+                use_dim=5),
+            dict(
+                backend_args=None,
+                load_dim=5,
+                pad_empty_sweeps=True,
+                remove_close=True,
+                sweeps_num=8,
+                type='LoadPointsFromMultiSweeps',
+                use_dim=5),
+            dict(
+                point_cloud_range=[
+                    -54.0,
+                    -54.0,
+                    -5.0,
+                    54.0,
+                    54.0,
+                    3.0,
+                ],
+                type='PointsRangeFilter'),
+            dict(
+                keys=[
+                    'img',
+                    'points',
+                    'gt_bboxes_3d',
+                    'gt_labels_3d',
+                ],
+                meta_keys=[
+                    'cam2img',
+                    'ori_cam2img',
+                    'lidar2cam',
+                    'lidar2img',
+                    'cam2lidar',
+                    'ori_lidar2img',
+                    'img_aug_matrix',
+                    'box_type_3d',
+                    'sample_idx',
+                    'lidar_path',
+                    'img_path',
+                    'num_pts_feats',
+                    'num_views',
+                ],
+                type='Pack3DDetInputs'),
+        ],
+        test_mode=True,
+        type='NuScenesDataset'),
+    drop_last=False,
+    num_workers=4,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    ann_file=
+    '/media/geisler/A4ECA10AECA0D7B6/robustness/nuscenes_infos_val.pkl',
+    backend_args=None,
+    data_root='/media/geisler/A4ECA10AECA0D7B6/robustness/',
+    metric='bbox',
+    type='NuScenesMetric')
+vis_backends = [
+    dict(type='LocalVisBackend'),
+]
+visualizer = dict(
+    name='visualizer',
+    type='Det3DLocalVisualizer',
+    vis_backends=[
+        dict(type='LocalVisBackend'),
+    ])
+voxel_size = [
+    0.075,
+    0.075,
+    0.2,
+]
+work_dir = './work_dirs/bevfusion_lidar_voxel0075_8sweeps'
+
+2024/12/05 17:22:22 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+2024/12/05 17:22:22 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+(NORMAL      ) DisableObjectSampleHook            
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) Det3DVisualizationHook             
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) Det3DVisualizationHook             
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+2024/12/05 17:22:25 - mmengine - INFO - ------------------------------
+2024/12/05 17:22:25 - mmengine - INFO - The length of test dataset: 1088
+2024/12/05 17:22:25 - mmengine - INFO - The number of instances per category in the dataset:
++----------------------+--------+
+| category             | number |
++----------------------+--------+
+| car                  | 16111  |
+| truck                | 4740   |
+| construction_vehicle | 501    |
+| bus                  | 456    |
+| trailer              | 1775   |
+| barrier              | 5707   |
+| motorcycle           | 111    |
+| bicycle              | 199    |
+| pedestrian           | 1683   |
+| traffic_cone         | 2373   |
++----------------------+--------+
+2024/12/05 17:22:27 - mmengine - INFO - Load checkpoint from projects/BEVFusion/configs/MMCV_Lidar_own.pth
+2024/12/05 17:22:33 - mmengine - INFO - Epoch(test) [  50/1088]    eta: 0:02:17  time: 0.1323  data_time: 0.0042  memory: 608  
+2024/12/05 17:22:40 - mmengine - INFO - Epoch(test) [ 100/1088]    eta: 0:02:06  time: 0.1230  data_time: 0.0014  memory: 608  
+2024/12/05 17:22:46 - mmengine - INFO - Epoch(test) [ 150/1088]    eta: 0:01:59  time: 0.1266  data_time: 0.0015  memory: 608  
+2024/12/05 17:22:52 - mmengine - INFO - Epoch(test) [ 200/1088]    eta: 0:01:52  time: 0.1232  data_time: 0.0014  memory: 608  
+2024/12/05 17:22:59 - mmengine - INFO - Epoch(test) [ 250/1088]    eta: 0:01:46  time: 0.1321  data_time: 0.0015  memory: 609  
+2024/12/05 17:23:04 - mmengine - INFO - Epoch(test) [ 300/1088]    eta: 0:01:38  time: 0.1129  data_time: 0.0014  memory: 608  
+2024/12/05 17:23:10 - mmengine - INFO - Epoch(test) [ 350/1088]    eta: 0:01:30  time: 0.1095  data_time: 0.0014  memory: 608  
+2024/12/05 17:23:16 - mmengine - INFO - Epoch(test) [ 400/1088]    eta: 0:01:24  time: 0.1185  data_time: 0.0014  memory: 608  
+2024/12/05 17:23:22 - mmengine - INFO - Epoch(test) [ 450/1088]    eta: 0:01:17  time: 0.1196  data_time: 0.0014  memory: 608  
+2024/12/05 17:23:28 - mmengine - INFO - Epoch(test) [ 500/1088]    eta: 0:01:11  time: 0.1260  data_time: 0.0014  memory: 608  
+2024/12/05 17:23:34 - mmengine - INFO - Epoch(test) [ 550/1088]    eta: 0:01:05  time: 0.1234  data_time: 0.0014  memory: 608  
+2024/12/05 17:23:40 - mmengine - INFO - Epoch(test) [ 600/1088]    eta: 0:00:59  time: 0.1215  data_time: 0.0014  memory: 608  
+2024/12/05 17:23:47 - mmengine - INFO - Epoch(test) [ 650/1088]    eta: 0:00:54  time: 0.1347  data_time: 0.0015  memory: 609  
+2024/12/05 17:23:54 - mmengine - INFO - Epoch(test) [ 700/1088]    eta: 0:00:48  time: 0.1329  data_time: 0.0014  memory: 609  
+2024/12/05 17:23:59 - mmengine - INFO - Epoch(test) [ 750/1088]    eta: 0:00:41  time: 0.1122  data_time: 0.0014  memory: 608  
+2024/12/05 17:24:05 - mmengine - INFO - Epoch(test) [ 800/1088]    eta: 0:00:35  time: 0.1238  data_time: 0.0014  memory: 608  
+2024/12/05 17:24:11 - mmengine - INFO - Epoch(test) [ 850/1088]    eta: 0:00:29  time: 0.1177  data_time: 0.0014  memory: 608  
+2024/12/05 17:24:18 - mmengine - INFO - Epoch(test) [ 900/1088]    eta: 0:00:23  time: 0.1257  data_time: 0.0015  memory: 608  
+2024/12/05 17:24:24 - mmengine - INFO - Epoch(test) [ 950/1088]    eta: 0:00:17  time: 0.1267  data_time: 0.0014  memory: 609  
+2024/12/05 17:24:31 - mmengine - INFO - Epoch(test) [1000/1088]    eta: 0:00:10  time: 0.1419  data_time: 0.0014  memory: 609  
+2024/12/05 17:24:38 - mmengine - INFO - Epoch(test) [1050/1088]    eta: 0:00:04  time: 0.1481  data_time: 0.0014  memory: 609  
+2024/12/05 17:26:09 - mmengine - INFO - Epoch(test) [1088/1088]    NuScenes metric/pred_instances_3d_NuScenes/car_AP_dist_0.5: 0.7578  NuScenes metric/pred_instances_3d_NuScenes/car_AP_dist_1.0: 0.8789  NuScenes metric/pred_instances_3d_NuScenes/car_AP_dist_2.0: 0.9045  NuScenes metric/pred_instances_3d_NuScenes/car_AP_dist_4.0: 0.9102  NuScenes metric/pred_instances_3d_NuScenes/car_trans_err: 0.1825  NuScenes metric/pred_instances_3d_NuScenes/car_scale_err: 0.1659  NuScenes metric/pred_instances_3d_NuScenes/car_orient_err: 0.1494  NuScenes metric/pred_instances_3d_NuScenes/car_vel_err: 0.2324  NuScenes metric/pred_instances_3d_NuScenes/car_attr_err: 0.1388  NuScenes metric/pred_instances_3d_NuScenes/mATE: 0.2881  NuScenes metric/pred_instances_3d_NuScenes/mASE: 0.2740  NuScenes metric/pred_instances_3d_NuScenes/mAOE: 0.3896  NuScenes metric/pred_instances_3d_NuScenes/mAVE: 0.2201  NuScenes metric/pred_instances_3d_NuScenes/mAAE: 0.1443  NuScenes metric/pred_instances_3d_NuScenes/truck_AP_dist_0.5: 0.3632  NuScenes metric/pred_instances_3d_NuScenes/truck_AP_dist_1.0: 0.5874  NuScenes metric/pred_instances_3d_NuScenes/truck_AP_dist_2.0: 0.6688  NuScenes metric/pred_instances_3d_NuScenes/truck_AP_dist_4.0: 0.7104  NuScenes metric/pred_instances_3d_NuScenes/truck_trans_err: 0.3430  NuScenes metric/pred_instances_3d_NuScenes/truck_scale_err: 0.1823  NuScenes metric/pred_instances_3d_NuScenes/truck_orient_err: 0.0974  NuScenes metric/pred_instances_3d_NuScenes/truck_vel_err: 0.2084  NuScenes metric/pred_instances_3d_NuScenes/truck_attr_err: 0.1257  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_AP_dist_0.5: 0.0256  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_AP_dist_1.0: 0.1044  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_AP_dist_2.0: 0.1433  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_AP_dist_4.0: 0.2299  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_trans_err: 0.5487  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_scale_err: 0.3776  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_orient_err: 0.8869  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_vel_err: 0.1011  NuScenes metric/pred_instances_3d_NuScenes/construction_vehicle_attr_err: 0.1608  NuScenes metric/pred_instances_3d_NuScenes/bus_AP_dist_0.5: 0.5046  NuScenes metric/pred_instances_3d_NuScenes/bus_AP_dist_1.0: 0.7812  NuScenes metric/pred_instances_3d_NuScenes/bus_AP_dist_2.0: 0.8400  NuScenes metric/pred_instances_3d_NuScenes/bus_AP_dist_4.0: 0.8631  NuScenes metric/pred_instances_3d_NuScenes/bus_trans_err: 0.3411  NuScenes metric/pred_instances_3d_NuScenes/bus_scale_err: 0.2633  NuScenes metric/pred_instances_3d_NuScenes/bus_orient_err: 0.0439  NuScenes metric/pred_instances_3d_NuScenes/bus_vel_err: 0.3239  NuScenes metric/pred_instances_3d_NuScenes/bus_attr_err: 0.5736  NuScenes metric/pred_instances_3d_NuScenes/trailer_AP_dist_0.5: 0.0674  NuScenes metric/pred_instances_3d_NuScenes/trailer_AP_dist_1.0: 0.3318  NuScenes metric/pred_instances_3d_NuScenes/trailer_AP_dist_2.0: 0.4813  NuScenes metric/pred_instances_3d_NuScenes/trailer_AP_dist_4.0: 0.6404  NuScenes metric/pred_instances_3d_NuScenes/trailer_trans_err: 0.5724  NuScenes metric/pred_instances_3d_NuScenes/trailer_scale_err: 0.2186  NuScenes metric/pred_instances_3d_NuScenes/trailer_orient_err: 0.7393  NuScenes metric/pred_instances_3d_NuScenes/trailer_vel_err: 0.2456  NuScenes metric/pred_instances_3d_NuScenes/trailer_attr_err: 0.0822  NuScenes metric/pred_instances_3d_NuScenes/barrier_AP_dist_0.5: 0.6610  NuScenes metric/pred_instances_3d_NuScenes/barrier_AP_dist_1.0: 0.8034  NuScenes metric/pred_instances_3d_NuScenes/barrier_AP_dist_2.0: 0.8676  NuScenes metric/pred_instances_3d_NuScenes/barrier_AP_dist_4.0: 0.8816  NuScenes metric/pred_instances_3d_NuScenes/barrier_trans_err: 0.2000  NuScenes metric/pred_instances_3d_NuScenes/barrier_scale_err: 0.2946  NuScenes metric/pred_instances_3d_NuScenes/barrier_orient_err: 0.0581  NuScenes metric/pred_instances_3d_NuScenes/barrier_vel_err: nan  NuScenes metric/pred_instances_3d_NuScenes/barrier_attr_err: nan  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_AP_dist_0.5: 0.3470  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_AP_dist_1.0: 0.3742  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_AP_dist_2.0: 0.3742  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_AP_dist_4.0: 0.3742  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_trans_err: 0.1951  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_scale_err: 0.2710  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_orient_err: 0.6457  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_vel_err: 0.3023  NuScenes metric/pred_instances_3d_NuScenes/motorcycle_attr_err: 0.0005  NuScenes metric/pred_instances_3d_NuScenes/bicycle_AP_dist_0.5: 0.1452  NuScenes metric/pred_instances_3d_NuScenes/bicycle_AP_dist_1.0: 0.1633  NuScenes metric/pred_instances_3d_NuScenes/bicycle_AP_dist_2.0: 0.1633  NuScenes metric/pred_instances_3d_NuScenes/bicycle_AP_dist_4.0: 0.1656  NuScenes metric/pred_instances_3d_NuScenes/bicycle_trans_err: 0.1852  NuScenes metric/pred_instances_3d_NuScenes/bicycle_scale_err: 0.3013  NuScenes metric/pred_instances_3d_NuScenes/bicycle_orient_err: 0.4782  NuScenes metric/pred_instances_3d_NuScenes/bicycle_vel_err: 0.1001  NuScenes metric/pred_instances_3d_NuScenes/bicycle_attr_err: 0.0000  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_AP_dist_0.5: 0.7282  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_AP_dist_1.0: 0.7341  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_AP_dist_2.0: 0.7578  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_AP_dist_4.0: 0.7595  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_trans_err: 0.1780  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_scale_err: 0.3369  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_orient_err: 0.4074  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_vel_err: 0.2469  NuScenes metric/pred_instances_3d_NuScenes/pedestrian_attr_err: 0.0726  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_AP_dist_0.5: 0.5833  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_AP_dist_1.0: 0.5890  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_AP_dist_2.0: 0.6070  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_AP_dist_4.0: 0.6437  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_trans_err: 0.1351  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_scale_err: 0.3287  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_orient_err: nan  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_vel_err: nan  NuScenes metric/pred_instances_3d_NuScenes/traffic_cone_attr_err: nan  NuScenes metric/pred_instances_3d_NuScenes/NDS: 0.6374  NuScenes metric/pred_instances_3d_NuScenes/mAP: 0.5379  data_time: 0.0016  time: 0.1259
