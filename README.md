@@ -5,7 +5,7 @@ Welcome to the repository for my master's thesis. This work focuses on integrati
 
 ## Table of Contents
 
-- [Overview](#overview)
+- [Abstract](#abstract)
 - [Repository Structure](#repository-structure)
 - [Requirements](#requirements)
 - [Installation](#installation)
