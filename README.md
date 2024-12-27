@@ -16,12 +16,17 @@ Welcome to the repository for my master's thesis. This work focuses on integrati
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
 
-## Overview
+## Abstract
 
-This thesis investigates methods to optimize the BEVFusion framework for deployment on the Jetson Xavier platform. Key objectives include:
-- Reducing inference latency through model adjustments.
-- Evaluating performance trade-offs between memory usage and computational speed.
-- Enhancing real-time processing capabilities for autonomous driving applications.
+This thesis investigates methods to optimize the BEVFusion framework for deployment on the Jetson Xavier platform. The research explores optimization strategies to enhance performance  including: 
+1. Model quantization
+2. Image backbone optimization
+3. Adjustments to input resolution
+
+Performance is assessed using a comprehensive evaluation framework that considers accuracy (measured as mean Average Precision, mAP) on the NuScenes dataset, inference
+ latency, power consumption, memory footprint, and robustness under adverse weather conditions. The goal is to optimize the trade-offs between these factors, ensuring that the model
+ remains both effective and efficient under the limitations imposed by practical deployment scenarios.
+ Results demonstrate significant improvements in runtime efficiency and energy usage while maintaining competitive accuracy, showcasing the feasibility of deploying BEV detection frameworks in constrained edge environments. 
 
 **Keywords**: BEVFusion, Jetson Xavier, Optimization, Real-Time Inference, Autonomous Driving
 
