@@ -46,11 +46,16 @@ Performance is assessed using a comprehensive evaluation framework that consider
 
 - NVIDIA Jetson Xavier with JetPack 5.1.3
 - Python 3.8
-- PyTorch 1.11.0
+- PyTorch 1.11.0 (Jetson Wheel)
+- Torchvision (from source)
 - CUDA 11.4
-- MMDetection3D and MMCV 2.1.0
+- MMCV 2.1.0 (mim install)
+- MMDet >=3.0.0 (mim install)
+- MMDetection3D (from source)
+- CUMM (from source)
+- Spconv(from source)
 - NuScenes dataset (~600GB)
-- Additional Python dependencies listed in `requirements.txt`
+- Nuscenes devkit
 
 ## Installation
 
@@ -118,9 +123,5 @@ Special thanks to my thesis advisor, lab colleagues, and the developers of the B
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 =======
-# Camara_Lidar_Architectures_Jetson_Xavier_Optimization
- 
-Master Thesis: Optimizing BEVFusion Framework for Jetson Xavier
 
-This repository contains the code, documentation, and results for my master thesis, which focuses on integrating and optimizing the BEVFusion framework for the Jetson Xavier platform. The objective of this work is to enhance inference performance while maintaining model accuracy, particularly for camera-LiDAR object detection tasks.
 
