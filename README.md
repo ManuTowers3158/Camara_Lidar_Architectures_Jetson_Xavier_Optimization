@@ -113,17 +113,23 @@ Performance is assessed using a comprehensive evaluation framework that consider
 10. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org). Recommended to have 1TB External SSD.
 
 ## Usage
+
 Copy config files inside projects/BEVFusion/configs
+
 Copy test scripts inside mmdetection3d/tools/
+
 Copy bevfusion_necks.py inside mmdetection3d/projects/BEVFusion/bevfusion
+
 For schemes 4-17 and lidar experiments, replace original bevfusion.py with bevfusion.py from this repo. 
 
 ### Running Inference and tegrastats logging
 To run inference on multiple schemes from scheme 4 to 17 in automated sequence use:
+
     ```bash
 	python tools/Test_Automation.py
     ```
 To run inference on a single scheme, inside Test_Automation.py use one of the availables command lines, example:
+
     ```bash
 python tools/test.py projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py /media/xavier02/xavier_ssd_500/mmdetection3d_source/mmdetection3d-main/projects/BEVFusion/configs/Cam_lid_ep6_fp16.pth
     ```
