@@ -86,7 +86,7 @@ Performance is assessed using a comprehensive evaluation framework that consider
    	cd mmdetection3d
 	pip install -v -e .
     ```	
-   note: During mmdetection3d installation user may need to manually hardcode and override the minimum mmcv version to the version that was installed from source.
+   Note: During mmdetection3d installation user may need to manually hardcode and override the minimum mmcv version to the version that was installed from source.
 
 7. Clone cumm and spconv repositories inside mmdetection 3D repository.
     ```bash
@@ -96,7 +96,7 @@ Performance is assessed using a comprehensive evaluation framework that consider
 8. Install cumm from source as per guide in [cumm repository](https://github.com/FindDefinition/cumm?tab=readme-ov-file). 
 9. Install spconv from source as per guide in [spconv repository](https://github.com/traveller59/spconv).
 
-   note: during spconv installation prior executing "pip install -e" make sure you run and verify spconv is operating:
+   Note: during spconv installation prior executing "pip install -e" make sure you run and verify spconv is operating:
     ```bash
 	export PYTHONPATH=$PYTHONPATH:/$userpath/mmdetection3d-main/cumm
 	export PYTHONPATH=$PYTHONPATH:/$userpath/mmdetection3d-main/spconv
@@ -113,12 +113,20 @@ Performance is assessed using a comprehensive evaluation framework that consider
 10. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org). Recommended to have 1TB External SSD.
 
 ## Usage
+Copy config files inside projects/BEVFusion/configs
+Copy test scripts inside mmdetection3d/tools/
+Copy bevfusion_necks.py inside mmdetection3d/projects/BEVFusion/bevfusion
+For schemes 4-17 and lidar experiments, replace original bevfusion.py with bevfusion.py from this repo. 
 
-### Running Inference
-To run inference on a test dataset and log system metrics:
-```bash
-python src/test.py --config configs/resnet18_config.py --checkpoint checkpoints/resnet18.pth
-```
+### Running Inference and tegrastats logging
+To run inference on multiple schemes from scheme 4 to 17 in automated sequence use:
+    ```bash
+	python tools/Test_Automation.py
+    ```
+To run inference on a single scheme, inside Test_Automation.py use one of the availables command lines, example:
+    ```bash
+python tools/test.py projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py /media/xavier02/xavier_ssd_500/mmdetection3d_source/mmdetection3d-main/projects/BEVFusion/configs/Cam_lid_ep6_fp16.pth
+    ```
 
 ### Measuring Performance
 Use the provided scripts in the `scripts` folder to monitor system metrics during inference:
@@ -155,8 +163,8 @@ Contributions, issues, and feature requests are welcome! Please follow the [cont
 Special thanks to my thesis advisor, lab colleagues, and the developers of the BEVFusion framework. This research was made possible by resources provided by [NVIDIA](https://www.nvidia.com) and the open-source NuScenes dataset.
 
 ## License
-
 This project is licensed under the MIT License. See the `LICENSE` file for details.
+
 =======
 
 
