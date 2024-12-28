@@ -80,12 +80,33 @@ Performance is assessed using a comprehensive evaluation framework that consider
 	python setup.py install
     ```	
 
-5. Install MMCV and MMDET using MIM installation as per [MMDetection 3D](https://mmdetection3d.readthedocs.io/en/latest/get_started.html)
+5. Install MMCV and MMDET using MIM installation as per guide[MMDetection 3D](https://mmdetection3d.readthedocs.io/en/latest/get_started.html)
 6. Instal from source MMDetection 3D:
     ```bash
    	cd mmdetection3d
 	pip install -v -e .
     ```	
+note: During mmdetection3d installation user may need to manually hardcode and override the minimum mmcv version to the version that was installed from source.
+
+7. Clone cumm and spconv repositories inside mmdetection 3D repository.
+    ```bash
+    git clone https://github.com/FindDefinition/cumm.git
+    git clone https://github.com/traveller59/spconv.git
+    ```	
+8. Install cumm from source as per guide in [cumm repository](https://github.com/FindDefinition/cumm?tab=readme-ov-file). 
+9. Install spconv from source as per guide in [spconv repository](https://github.com/traveller59/spconv).
+note: during spconv installation prior executing "pip install -e" make sure you run and verify spconv is operating:
+    ```bash
+	export PYTHONPATH=$PYTHONPATH:/$userpath/mmdetection3d-main/cumm
+	export PYTHONPATH=$PYTHONPATH:/$userpath/mmdetection3d-main/spconv
+	export CUMM_CUDA_ARCH_LIST="7.2"
+	python3
+	import spconv
+	print(spconv.__version__)
+	exit()
+    ```	
+
+
 
 
 10. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org). Recommended to have 1TB External SSD.
