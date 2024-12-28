@@ -68,9 +68,7 @@ Performance is assessed using a comprehensive evaluation framework that consider
    
    ```
 
-2. Install pytorch wheel from (https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048).
-
-
+2. Install pytorch wheel from [Pytorch for Jetson](https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048).
 
 3. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org).
 
