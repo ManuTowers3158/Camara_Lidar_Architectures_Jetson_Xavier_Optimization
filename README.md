@@ -70,10 +70,10 @@ Performance is assessed using a comprehensive evaluation framework that consider
 
 2. Install pytorch wheel from [Pytorch for Jetson](https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048).
 
-3. Clone Torchvision Repository inside mmdetection3D Repository:
-  ```bash
+3. Clone Torchvision Repository inside mmdetection3D Repository
+:
+   ```bash
    git clone https://github.com/pytorch/vision.git
-   
    ```	
 4. Install Torchvision:
     ```	
