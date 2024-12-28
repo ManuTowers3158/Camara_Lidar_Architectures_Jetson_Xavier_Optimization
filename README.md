@@ -61,16 +61,16 @@ Performance is assessed using a comprehensive evaluation framework that consider
 
 ## Installation
 
-1. Clone the repository:
+1. Clone mmdetection3D Repository
+:
    ```bash
-   git clone https://github.com/yourusername/your-thesis-repo.git
-   cd your-thesis-repo
+   git clone https://github.com/open-mmlab/mmdetection3d.git -b dev-1.x
+   
    ```
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. Install pytorch wheel from (https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048).
+
+
 
 3. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org).
 
@@ -78,6 +78,10 @@ Performance is assessed using a comprehensive evaluation framework that consider
    ```bash
    ./scripts/install_mmdetection3d.sh
    ```
+7. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+	   ```
 
 ## Usage
 
