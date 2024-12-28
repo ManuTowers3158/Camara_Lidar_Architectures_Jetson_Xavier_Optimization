@@ -86,7 +86,7 @@ Performance is assessed using a comprehensive evaluation framework that consider
    	cd mmdetection3d
 	pip install -v -e .
     ```	
-note: During mmdetection3d installation user may need to manually hardcode and override the minimum mmcv version to the version that was installed from source.
+   note: During mmdetection3d installation user may need to manually hardcode and override the minimum mmcv version to the version that was installed from source.
 
 7. Clone cumm and spconv repositories inside mmdetection 3D repository.
     ```bash
@@ -95,7 +95,8 @@ note: During mmdetection3d installation user may need to manually hardcode and o
     ```	
 8. Install cumm from source as per guide in [cumm repository](https://github.com/FindDefinition/cumm?tab=readme-ov-file). 
 9. Install spconv from source as per guide in [spconv repository](https://github.com/traveller59/spconv).
-note: during spconv installation prior executing "pip install -e" make sure you run and verify spconv is operating:
+
+   note: during spconv installation prior executing "pip install -e" make sure you run and verify spconv is operating:
     ```bash
 	export PYTHONPATH=$PYTHONPATH:/$userpath/mmdetection3d-main/cumm
 	export PYTHONPATH=$PYTHONPATH:/$userpath/mmdetection3d-main/spconv
