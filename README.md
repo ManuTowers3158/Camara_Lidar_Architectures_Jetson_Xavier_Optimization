@@ -125,9 +125,8 @@ For schemes 4-17 and lidar experiments, replace original bevfusion.py with bevfu
 ### Running Inference and tegrastats logging
 To run inference on multiple schemes from scheme 4 to 17 in automated sequence use:
 
-    ```bash
 	python tools/Test_Automation.py
-    ```
+
 To run inference on a single scheme, inside Test_Automation.py use one of the availables command lines, example:
 
     ```bash
