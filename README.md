@@ -80,14 +80,14 @@ Performance is assessed using a comprehensive evaluation framework that consider
 	python setup.py install
     ```	
 
-5. Compile and install MMCV and MMDetection3D:
-   ```bash
-   ./scripts/install_mmdetection3d.sh
-   ```
-7. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-	   ```
+5. Install MMCV and MMDET using MIM installation as per [MMDetection 3D](https://mmdetection3d.readthedocs.io/en/latest/get_started.html)
+6. Instal from source MMDetection 3D:
+    ```bash
+   	cd mmdetection3d
+	pip install -v -e .
+    ```	
+
+
 10. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org). Recommended to have 1TB External SSD.
 
 ## Usage
