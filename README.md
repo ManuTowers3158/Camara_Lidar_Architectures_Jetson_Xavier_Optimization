@@ -70,9 +70,17 @@ Performance is assessed using a comprehensive evaluation framework that consider
 
 2. Install pytorch wheel from [Pytorch for Jetson](https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048).
 
-3. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org).
+3. Clone Torchvision Repository inside mmdetection3D Repository:
+  ```bash
+   git clone https://github.com/pytorch/vision.git
+   
+   ```	
+4. Install Torchvision:
+    ```	
+	python setup.py install
+    ```	
 
-4. Compile and install MMCV and MMDetection3D:
+5. Compile and install MMCV and MMDetection3D:
    ```bash
    ./scripts/install_mmdetection3d.sh
    ```
@@ -80,6 +88,7 @@ Performance is assessed using a comprehensive evaluation framework that consider
    ```bash
    pip install -r requirements.txt
 	   ```
+10. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org). Recommended to have 1TB External SSD.
 
 ## Usage
 
