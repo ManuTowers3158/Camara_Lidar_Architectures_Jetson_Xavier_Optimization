@@ -45,10 +45,12 @@ Performance is assessed using a comprehensive evaluation framework that consider
 ## Requirements
 
 - NVIDIA Jetson Xavier with JetPack 5.1.3
+- CUDA 11.4
 - Python 3.8
+- GCC 9.4
+- CuDNN 8.6
 - PyTorch 1.11.0 (Jetson Wheel)
 - Torchvision (from source)
-- CUDA 11.4
 - MMCV 2.1.0 (mim install)
 - MMDet >=3.0.0 (mim install)
 - MMDetection3D (from source)
