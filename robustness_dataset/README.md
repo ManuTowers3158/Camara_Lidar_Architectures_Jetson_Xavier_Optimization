@@ -25,10 +25,18 @@ python nuscenes_subset_creator.py
 
 ### 3. Subset Validation
 
-Once subset is created, run validation script to verify metadata is in correct.
+Once subset is created, run validation script to verify metadata is correct.
 
 ```bash
 python validate_nuscenes_metadata.py 
+```
+
+### 4. PKL files creation
+
+Follow mm3detection guide, prior exectuing create_data, modify splits.py with the obtained by running:
+ 
+```bash
+scene_number_extraction.py
 ```
 
 ## File Structure
