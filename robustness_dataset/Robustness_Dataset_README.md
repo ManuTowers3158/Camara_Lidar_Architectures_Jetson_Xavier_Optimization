@@ -54,3 +54,25 @@ robustness_dataset/
 ├── requirements.txt      # Required Python dependencies
 └── README.md             # Project documentation
 ```
+
+## Future Work
+
+- Add support for additional weather conditions (e.g., snow, haze).
+- Include benchmarking tools for model evaluation.
+- Optimize filtering and analysis processes for speed and scalability.
+
+## Contributions
+
+Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or feedback, feel free to reach out:
+
+- **Author**: Manuel Torres  
+- **Email**: [YourEmail@example.com]  
+- **GitHub**: [ManuTowers3158](https://github.com/ManuTowers3158)
