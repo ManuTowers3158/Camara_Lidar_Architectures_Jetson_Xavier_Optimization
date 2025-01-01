@@ -31,12 +31,16 @@ Once subset is created, run validation script to verify metadata is correct.
 python validate_nuscenes_metadata.py 
 ```
 
-### 4. PKL files creation
+### 4. PKL files creation for mmdetection3D
 
-Follow mm3detection guide, prior exectuing create_data, modify splits.py with the obtained by running:
+Follow [mm3detection guide](https://mmdetection3d.readthedocs.io/en/latest/advanced_guides/datasets/nuscenes.html), prior exectuing create_data.py, modify splits.py with the array list obtained by running:
  
 ```bash
 scene_number_extraction.py
+```
+After modifying the splits.py file:
+```bash
+python tools/create_data.py nuscenes --root-path ./data/robustness_nuscenes --out-dir ./data/robustness_nuscenes --extra-tag nuscenes
 ```
 
 ## File Structure
