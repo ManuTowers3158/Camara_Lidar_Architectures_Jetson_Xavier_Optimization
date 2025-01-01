@@ -1,6 +1,6 @@
 # Robustness Dataset for Camera-LiDAR Architectures Optimization
 
-This repository contains tools and datasets tailored for evaluating the robustness of camera-LiDAR architectures optimized for Jetson Xavier. The focus is on creating and analyzing subsets of the NuScenes dataset under specific weather conditions (e.g., rain, fog) and other robustness-related scenarios.
+This repository contains tools and datasets tailored for evaluating the robustness of camera-LiDAR architectures. The focus is on creating and analyzing subsets of the NuScenes dataset under specific weather conditions (e.g., rain, fog) and other robustness-related scenarios.
 
 ## Features
 
@@ -9,18 +9,7 @@ This repository contains tools and datasets tailored for evaluating the robustne
 - **Extensible Scripts**: Python scripts to streamline dataset preparation and filtering processes.
 - **Focus on Robustness**: Enables testing and validation of camera-LiDAR fusion models under diverse scenarios.
 
-## Requirements
 
-Before using this repository, ensure you have the following installed:
-
-- Python 3.8+
-- Required Python libraries (listed in `requirements.txt`).
-- Access to the NuScenes dataset (full dataset required).
-
-To install dependencies:
-
-```bash
-pip install -r requirements.txt
 ```
 
 ## Usage
@@ -49,30 +38,8 @@ The filtered datasets are designed to integrate seamlessly with BEVFusion for pe
 
 ```
 robustness_dataset/
-├── filter_nuscenes.py    # Script to filter the NuScenes dataset
-├── analyze_data.py       # Tools for analyzing the filtered dataset
-├── requirements.txt      # Required Python dependencies
+├── filter_nuscenes.py    # 
+├── analyze_data.py       # 
+├── requirements.txt      # 
 └── README.md             # Project documentation
 ```
-
-## Future Work
-
-- Add support for additional weather conditions (e.g., snow, haze).
-- Include benchmarking tools for model evaluation.
-- Optimize filtering and analysis processes for speed and scalability.
-
-## Contributions
-
-Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For questions or feedback, feel free to reach out:
-
-- **Author**: Manuel Torres  
-- **Email**: [YourEmail@example.com]  
-- **GitHub**: [ManuTowers3158](https://github.com/ManuTowers3158)
