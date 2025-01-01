@@ -8,24 +8,28 @@ This repository contains tools and datasets tailored for evaluating the robustne
 
 ### 1. Filtering the Dataset
 
-Run the script to filter scenes from the NuScenes dataset containing specific weather conditions:
+Run the script to filter scenes from the NuScenes dataset containing specific weather conditions: 
 
 ```bash
 python nuscenes_weather_filter.py 
 ```
-To filter which scenes match the desired weather condition 
+
 
 ### 2. Create Robustness subset dataset
 
-Run the script to créate the robustness subset. 
+Run the script to create the robustness subset. 
 
 ```bash
 python nuscenes_subset_creator.py 
 ```
 
-### 3. Integration with BEVFusion
+### 3. Subset Validation
 
-The filtered datasets are designed to integrate seamlessly with BEVFusion for performance evaluation and optimization.
+Once subset is created, run validation script to verify metadata is in correct.
+
+```bash
+python validate_nuscenes_metadata.py 
+```
 
 ## File Structure
 
