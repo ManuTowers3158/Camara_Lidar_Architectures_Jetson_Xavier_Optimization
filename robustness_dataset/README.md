@@ -2,13 +2,6 @@
 
 This repository contains tools and datasets tailored for evaluating the robustness of camera-LiDAR architectures. The focus is on creating and analyzing subsets of the NuScenes dataset under specific weather conditions (e.g., rain, fog) and other robustness-related scenarios.
 
-## Features
-
-- **Filtered NuScenes Dataset**: Tools to create subsets of NuScenes with challenging conditions like rain and fog.
-- **Optimization-ready**: Designed for robust performance evaluation on resource-constrained devices like the Jetson Xavier.
-- **Extensible Scripts**: Python scripts to streamline dataset preparation and filtering processes.
-- **Focus on Robustness**: Enables testing and validation of camera-LiDAR fusion models under diverse scenarios.
-
 
 ```
 
@@ -19,15 +12,16 @@ This repository contains tools and datasets tailored for evaluating the robustne
 Run the script to filter scenes from the NuScenes dataset containing specific weather conditions:
 
 ```bash
-python filter_nuscenes.py --condition rain --output_dir ./filtered_data
+python nuscenes_weather_filter.py 
 ```
+To filter which scenes match the desired weather condition 
 
-### 2. Data Analysis
+### 2. Create Robustness subset dataset
 
-Once the filtered dataset is created, use the analysis tools to generate insights about the selected subsets:
+Run the script to créate the robustness subset. 
 
 ```bash
-python analyze_data.py --input_dir ./filtered_data
+python nuscenes_subset_creator.py 
 ```
 
 ### 3. Integration with BEVFusion
