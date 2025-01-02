@@ -155,9 +155,19 @@ Detailed experiments include:
 
 ## Results
 
-- Achieved a **50% reduction in latency** through model adjustments and optimizations.
-- Increased memory usage slightly to enable faster inference.
-- Quantitative results and visualizations are stored in the `results/` folder.
+The following table summarizes the key results from our experiments:
+
+| Backbone      | Latency (ms) | Memory Usage (GB) | Accuracy (%) |
+|---------------|--------------|-------------------|--------------|
+| ResNet-18     | 1317         | 15.5             | 72.3         |
+| ResNet-50     | 2667         | 16.0             | 75.4         |
+| MobileNetV2   | 987          | 14.2             | 70.1         |
+
+### Key Observations
+- **ResNet-18** achieves a good balance between speed and accuracy.
+- **ResNet-50** offers higher accuracy at the cost of increased latency and memory usage.
+- **MobileNetV2** is the fastest but sacrifices some accuracy.
+
 
 ## Contributing
 
