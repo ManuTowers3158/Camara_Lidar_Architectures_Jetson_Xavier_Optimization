@@ -153,11 +153,7 @@ Detailed experiments include:
 3. LiDAR Sweep Reduction: Impact on memory and latency
 4. FP16 Optimization: Enabling half-precision in voxelization and sparse encoder
 
-## Results
 
-## Results Table
-
-The table below summarizes the performance metrics for various schemes:
 
 ## Results Table
 
