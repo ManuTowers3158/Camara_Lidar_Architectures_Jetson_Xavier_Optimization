@@ -202,9 +202,7 @@ The table below summarizes the performance metrics for various schemes:
 - **MobileNetV2** is the fastest but sacrifices some accuracy.
 
 
-## Contributing
 
-Contributions, issues, and feature requests are welcome! Please follow the [contributing guidelines](CONTRIBUTING.md).
 
 ## Acknowledgments
 
