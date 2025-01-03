@@ -150,7 +150,7 @@ python src/visualize_lidar.py --data-path data/nuscenes
 The experiments are divided as follows:
 
 1. **Initial Baseline**:
-    - Scheme 1: Jetson Xavier configured in default mode
+    - Scheme 1| Jetson Xavier configured in default mode
 
 2. **HW/SW Max Performance**:
     - Scheme 2: Jetson Xavier configured to MAX performance mode
