@@ -147,27 +147,31 @@ python src/visualize_lidar.py --data-path data/nuscenes
 
 ## Experiments
 
-The expirments are divided as follow:
+The experiments are divided as follows:
 
-Initial Baseline: 
-	Scheme 1 | Jetson Xavier configured in default mode
-HW/SW Max Performance:
-	Scheme 2 | Jetson Xavier configured to MAX performance mode
-	Scheme 3 | Scheme 2 + Spconv libray 
-Model Quantization:
-	Scheme 4 | Scheme 3 + Model weights in FP16
-	Scheme 5 | Scheme 4 + Use of torch.autocast() function
-Image Backbone Optimization:
-	Scheme 6 | Scheme 5 / Resnet 50 as image backbone
-	Scheme 7 | Scheme 5 / Resnet 34 as image backbone
-	Scheme 8 | Scheme 5 / Resnet 18 as image backbone
-	Scheme 9 | Scheme 8 / model retrained with Resnet 18
-	Scheme 10| Scheme 5/ image tensor set to zero prior to sensor fusion
-Input Size Resolution:
-	Scheme 11|Scheme 5 /LiDAR input using only 4 sweeps 
-	Scheme 12|Scheme 5 /LiDAR input using only 1 sweep 
-	Scheme 13|Scheme 5 /LiDAR input using 50% point cloud 
-	Scheme 14|Scheme 5 /LiDAR input using 25% point cloud 
+1. **Initial Baseline**:
+    - Scheme 1: Jetson Xavier configured in default mode
+
+2. **HW/SW Max Performance**:
+    - Scheme 2: Jetson Xavier configured to MAX performance mode
+    - Scheme 3: Scheme 2 + Spconv library 
+
+3. **Model Quantization**:
+    - Scheme 4: Scheme 3 + Model weights in FP16
+    - Scheme 5: Scheme 4 + Use of `torch.autocast()` function
+
+4. **Image Backbone Optimization**:
+    - Scheme 6: Scheme 5 / Resnet 50 as image backbone
+    - Scheme 7: Scheme 5 / Resnet 34 as image backbone
+    - Scheme 8: Scheme 5 / Resnet 18 as image backbone
+    - Scheme 9: Scheme 8 / model retrained with Resnet 18
+    - Scheme 10: Scheme 5 / image tensor set to zero prior to sensor fusion
+
+5. **Input Size Resolution**:
+    - Scheme 11: Scheme 5 / LiDAR input using only 4 sweeps
+    - Scheme 12: Scheme 5 / LiDAR input using only 1 sweep
+    - Scheme 13: Scheme 5 / LiDAR input using 50% point cloud
+    - Scheme 14: Scheme 5 / LiDAR input using 25% point cloud
 
 ## Results Table
 
