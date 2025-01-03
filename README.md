@@ -147,13 +147,27 @@ python src/visualize_lidar.py --data-path data/nuscenes
 
 ## Experiments
 
-Detailed experiments include:
-1. Backbone Analysis: ResNet-18 vs. ResNet-50
-2. Quantization: Float32 vs. Int8 models
-3. LiDAR Sweep Reduction: Impact on memory and latency
-4. FP16 Optimization: Enabling half-precision in voxelization and sparse encoder
+The expirments are divided as follow:
 
-
+Initial Baseline: 
+	Scheme 1 | Jetson Xavier configured in default mode
+HW/SW Max Performance:
+	Scheme 2 | Jetson Xavier configured to MAX performance mode
+	Scheme 3 | Scheme 2 + Spconv libray 
+Model Quantization:
+	Scheme 4 | Scheme 3 + Model weights in FP16
+	Scheme 5 | Scheme 4 + Use of torch.autocast() function
+Image Backbone Optimization:
+	Scheme 6 | Scheme 5 / Resnet 50 as image backbone
+	Scheme 7 | Scheme 5 / Resnet 34 as image backbone
+	Scheme 8 | Scheme 5 / Resnet 18 as image backbone
+	Scheme 9 | Scheme 8 / model retrained with Resnet 18
+	Scheme 10| Scheme 5/ image tensor set to zero prior to sensor fusion
+Input Size Resolution:
+	Scheme 11|Scheme 5 /LiDAR input using only 4 sweeps 
+	Scheme 12|Scheme 5 /LiDAR input using only 1 sweep 
+	Scheme 13|Scheme 5 /LiDAR input using 50% point cloud 
+	Scheme 14|Scheme 5 /LiDAR input using 25% point cloud 
 
 ## Results Table
 
@@ -174,6 +188,7 @@ The table below summarizes the performance metrics for various schemes:
 | Scheme 15 | 0.560    | 668          | 0.5317     | 14012              | 9.360                   | 13247.45         | 8849.297                    |
 | Scheme 16 | 0.607    | 830          | 0.600      | 14523.23           | 12.054                  | 13909.42         | 11544.819                   |
 | Scheme 17 | 0.520    | 703          | 0.517      | 14294.69           | 10.049                  | 13156.76         | 9249.202                    |
+
 
 
 
