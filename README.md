@@ -113,6 +113,8 @@ Performance is assessed using a comprehensive evaluation framework that consider
 10. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org). Recommended to have 1TB External SSD.
 
 ## Usage
+Dowload model checkpoints [Model_Chekpoints.zip](https://drive.google.com/drive/folders/16jk2guZ8huJx_NvECgLclfOBfYC1bGbB?usp=sharing)
+
 
 Copy config files inside projects/BEVFusion/configs
 
