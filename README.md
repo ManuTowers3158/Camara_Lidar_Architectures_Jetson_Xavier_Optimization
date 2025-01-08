@@ -184,7 +184,7 @@ The experiments are divided as follows:
 | Scheme 16  | 0.520    | 703          | 0.517      | 14294.69      | 13156.76    |
 
 
-![Texto alternativo]("\results\final5.jpg" "Texto opcional del título")
+![Texto alternativo]("results\final5.jpg" "Texto opcional del título")
 
 
 ### Key Observations
