@@ -184,10 +184,10 @@ The experiments are divided as follows:
 | Scheme 16  | 0.520    | 703          | 0.517      | 14294.69      | 13156.76    |
 
 
+![Texto alternativo]("\results\final5.jpg" "Texto opcional del título")
+
+
 ### Key Observations
-- **ResNet-18** achieves a good balance between speed and accuracy.
-- **ResNet-50** offers higher accuracy at the cost of increased latency and memory usage.
-- **MobileNetV2** is the fastest but sacrifices some accuracy.
 
 
 
