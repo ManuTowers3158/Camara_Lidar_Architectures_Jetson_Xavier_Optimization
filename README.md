@@ -33,7 +33,7 @@ Performance is assessed using a comprehensive evaluation framework that consider
 ## Repository Structure
 
 ```
-├── configs/                # Configuration files for training and testing
+├── configs/                # Configuration files for training and testing & model checkpoints
 ├── robustness_dataset/                   # NuScenes Robustness dataset 
 ├── tools/                # Scripts for experiments and metrics logging
 ├── results/                # metrics, and results of experiments
