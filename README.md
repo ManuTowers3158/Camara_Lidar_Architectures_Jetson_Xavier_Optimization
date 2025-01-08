@@ -34,12 +34,12 @@ Performance is assessed using a comprehensive evaluation framework that consider
 
 ```
 ├── configs/                # Configuration files for training and testing
-├── data/                   # NuScenes dataset and subsets
-├── scripts/                # Scripts for experiments and metrics logging
-├── results/                # Logs, metrics, and results of experiments
-├── src/                    # Core BEVFusion framework and modifications
-├── notebooks/              # Jupyter notebooks for analysis
-└── README.md               # This file
+├── robustness_dataset/                   # NuScenes Robustness dataset 
+├── tools/                # Scripts for experiments and metrics logging
+├── results/                # metrics, and results of experiments
+├── bevfusion/                    # BEVFusion modifications
+├── Final Logs/              # raw logs from Jetson Xavier Tegrastats/Report mmdetection3d
+└── README.md              
 ```
 
 ## Requirements
