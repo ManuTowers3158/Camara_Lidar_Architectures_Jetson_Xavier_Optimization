@@ -33,7 +33,7 @@ Performance is assessed using a comprehensive evaluation framework that consider
 ## Repository Structure
 
 ```
-├── configs/                # Configuration files for training and testing & model checkpoints
+├── configs/                # Configuration files for training and testing 
 ├── robustness_dataset/                   # NuScenes Robustness dataset 
 ├── tools/                # Scripts for experiments and metrics logging
 ├── results/                # metrics, and results of experiments
@@ -113,23 +113,22 @@ Performance is assessed using a comprehensive evaluation framework that consider
 10. Download and set up the NuScenes dataset as per [NuScenes instructions](https://www.nuscenes.org). Recommended to have 1TB External SSD.
 
 ## Usage
-Dowload model checkpoints [Model_Chekpoints.zip](https://drive.google.com/drive/folders/16jk2guZ8huJx_NvECgLclfOBfYC1bGbB?usp=sharing)
+1. Download model checkpoints [Model_Chekpoints.zip](https://drive.google.com/drive/folders/16jk2guZ8huJx_NvECgLclfOBfYC1bGbB?usp=sharing)
 
+2. Copy config files inside projects/BEVFusion/configs
 
-Copy config files inside projects/BEVFusion/configs
+3. Copy test scripts inside mmdetection3d/tools/
 
-Copy test scripts inside mmdetection3d/tools/
+4. Copy bevfusion_necks.py inside mmdetection3d/projects/BEVFusion/bevfusion
 
-Copy bevfusion_necks.py inside mmdetection3d/projects/BEVFusion/bevfusion
-
-For schemes 4-17 and lidar experiments, replace original bevfusion.py with bevfusion.py from this repo. 
+5. For schemes 4-17 and lidar experiments, replace original bevfusion.py with bevfusion.py from this repo. 
 
 ### Running Inference and tegrastats logging
-To run inference on multiple schemes from scheme 4 to 17 in automated sequence use:
+6. To run inference on multiple schemes from scheme 4 to 17 in automated sequence use:
 
 	python tools/Test_Automation.py
 
-To run inference on a single scheme, inside Test_Automation.py use one of the availables command lines, example:
+7. To run inference on a single scheme, inside Test_Automation.py use one of the availables command lines, example:
 
 
 	python tools/test.py projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py /media/xavier02/xavier_ssd_500/mmdetection3d_source/mmdetection3d-	main/projects/BEVFusion/configs/Cam_lid_ep6_fp16.pth
