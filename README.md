@@ -132,7 +132,7 @@ Performance is assessed using a comprehensive evaluation framework that consider
 7. To run inference on a single scheme, inside Test_Automation.py use one of the availables command lines, example:
 	```bash
 
-	python tools/test.py projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py /media/xavier02/xavier_ssd_500/mmdetection3d_source/mmdetection3d-	main/projects/BEVFusion/configs/Cam_lid_ep6_fp16.pth
+	python tools/test.py projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py /projects/BEVFusion/configs/Cam_lid_ep6_fp16.pth
 	```	    
 
 
@@ -192,6 +192,31 @@ The experiments are divided as follows:
 
 ### Key Observations
 
+Key Findings
+Jetson Max clock configuration
+39% reduction in latency achieved across the entire inference process.
+
+SpConv Library Optimization
+The LiDAR processing stage latency reduced by 100ms (12%) with the SpConv library.
+Maintains accuracy since only computation methods were optimized, not the algorithm.
+
+Quantization and Autocast Effects
+Scheme 4: Minimal latency improvement (2%).
+Scheme 5: Autocast in FP16 achieves a significant 18% latency reduction.
+Full FP16 model processing has a greater impact than just training the model with FP16 weights.
+
+Image Backbone Comparison
+ResNet-34 and ResNet-18 maintain accuracy and robustness close to the original model.
+ResNet-50 shows decreased accuracy and robustness.
+ResNet-18 outperforms Swin-Tiny, increasing accuracy by 1.6 points with no loss in robustness.
+The smaller parameter count in ResNet-18 likely contributes to better generalization.
+
+LiDAR input size optimization 
+Schemes 13, 14, 15, and 16 successfully reduced latency to under 1 second, but with accuracy trade-offs:
+Scheme 14: -2.5 mAP points.
+Scheme 15: -5.6 mAP points.
+Scheme 13: -9.5 mAP points.
+Scheme 16: -13.5 mAP points.
 
 
 
