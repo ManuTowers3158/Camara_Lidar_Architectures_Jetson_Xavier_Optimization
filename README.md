@@ -192,31 +192,31 @@ The experiments are divided as follows:
 
 ### Key Observations
 
-Key Findings
-Jetson Max clock configuration
-39% reduction in latency achieved across the entire inference process.
+Key Findings:
+Jetson Max clock configuration:
+	39% reduction in latency achieved across the entire inference process.
 
-SpConv Library Optimization
-The LiDAR processing stage latency reduced by 100ms (12%) with the SpConv library.
-Maintains accuracy since only computation methods were optimized, not the algorithm.
+SpConv Library Optimization:
+	The LiDAR processing stage latency reduced by 100ms (12%) with the SpConv library.
+	Maintains accuracy since only computation methods were optimized, not the algorithm.
 
-Quantization and Autocast Effects
-Scheme 4: Minimal latency improvement (2%).
-Scheme 5: Autocast in FP16 achieves a significant 18% latency reduction.
-Full FP16 model processing has a greater impact than just training the model with FP16 weights.
+Quantization and Autocast Effects:
+	Scheme 4: Minimal latency improvement (2%).
+	Scheme 5: Autocast in FP16 achieves a significant 18% latency reduction.
+	Full FP16 model processing has a greater impact than just training the model with FP16 weights.
 
-Image Backbone Comparison
-ResNet-34 and ResNet-18 maintain accuracy and robustness close to the original model.
-ResNet-50 shows decreased accuracy and robustness.
-ResNet-18 outperforms Swin-Tiny, increasing accuracy by 1.6 points with no loss in robustness.
-The smaller parameter count in ResNet-18 likely contributes to better generalization.
+Image Backbone Comparison:
+	ResNet-34 and ResNet-18 maintain accuracy and robustness close to the original model.
+	ResNet-50 shows decreased accuracy and robustness.
+	ResNet-18 outperforms Swin-Tiny, increasing accuracy by 1.6 points with no loss in robustness.
+	The smaller parameter count in ResNet-18 likely contributes to better generalization.
 
-LiDAR input size optimization 
-Schemes 13, 14, 15, and 16 successfully reduced latency to under 1 second, but with accuracy trade-offs:
-Scheme 14: -2.5 mAP points.
-Scheme 15: -5.6 mAP points.
-Scheme 13: -9.5 mAP points.
-Scheme 16: -13.5 mAP points.
+LiDAR input size optimization: 
+	Schemes 13, 14, 15, and 16 successfully reduced latency to under 1 second, but with accuracy trade-offs:
+	Scheme 14: -2.5 mAP points.
+	Scheme 15: -5.6 mAP points.
+	Scheme 13: -9.5 mAP points.
+	Scheme 16: -13.5 mAP points.
 
 
 
