@@ -124,15 +124,16 @@ Performance is assessed using a comprehensive evaluation framework that consider
 5. For schemes 4-17 and lidar experiments, replace original bevfusion.py with bevfusion.py from this repo. 
 
 ### Running Inference and tegrastats logging
-6. To run inference on multiple schemes from scheme 4 to 17 in automated sequence use:
-
+6. To run inference on multiple schemes from scheme 5 to 16 in automated sequence use:
+	```bash
 	python tools/Test_Automation.py
+	```	
 
 7. To run inference on a single scheme, inside Test_Automation.py use one of the availables command lines, example:
-
+	```bash
 
 	python tools/test.py projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py /media/xavier02/xavier_ssd_500/mmdetection3d_source/mmdetection3d-	main/projects/BEVFusion/configs/Cam_lid_ep6_fp16.pth
-    
+	```	    
 
 
 ## Experiments
